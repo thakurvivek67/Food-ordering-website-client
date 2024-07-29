@@ -1,0 +1,32 @@
+.navbar {
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #d52222;
+    color: #fff;
+}
+
+.navbar h1 {
+    margin: 0;
+    padding-left: 30px;
+    font-size: 24px;
+    font-family: cursive;
+}
+
+.nav-links {
+    display: flex;
+    padding-right: 30px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.nav-links a.active {
+    border-bottom: 2px solid #fff;
+}
