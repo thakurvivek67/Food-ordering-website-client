@@ -1,124 +1,124 @@
 /* Reset margins and padding */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Container for the entire menu page */
 .contanierM {
-    font-family: Arial, sans-serif;
-    width: 100%;
-    height: 100vh;
-    /* Full viewport height */
-    padding: 0;
-    /* Remove padding */
+  font-family: Arial, sans-serif;
+  width: 100%;
+  /* Full viewport height */
+  padding: 0;
 }
 
 /* Navbar styling (adjust according to your Navbar component's styles) */
 .Navbar {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* Styling for the photo container with the heading and image */
 .photo-contanier {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    /* Set a fixed height for the image container */
-    overflow: hidden;
-    /* Ensure content does not overflow */
+  position: relative;
+  width: 100%;
+  height: 400px;
+  /* Set a fixed height for the image container */
+  overflow: hidden;
+  /* Ensure content does not overflow */
 }
 
 .photo-contanier img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Ensure the image covers the container */
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensure the image covers the container */
+  display: block;
 }
 
 .headingM {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 60px;
-    color: #fff4f4;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.10);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  color: #fff4f4;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.10);
 }
 
 /* Styling for the category select box */
 .selectM {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    margin: 20px auto;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f8f8f8;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto 10px auto; /* Adjusted bottom margin */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Styling for the menu list */
 .contanierL {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    width: 100%;
-    height: 100vh; /* Full viewport height */
-    padding: 20px;
-    background-color: #f8f8f8;
- 
-  }
-  
-  /* Container for the list */
-  .contanier-list {
-    list-style-type: none;
-    background-color: rgb(255, 220, 220);
-    padding: 0;
-    width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column; /* Changed to column to align items vertically */
+  justify-content: flex-start; /* Align items at the start of the container */
+  align-items: center;
+  width: 100%;
+  padding: 0 20px; /* Adjusted padding to reduce space */
+  background-color: #f8f8f8;
+}
 
-    max-width: 800px; /* Max width for the list container */
-  }
-  
-  /* Styling for each menu item */
-  .menu-list {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-    gap: 15px; /* Space between image and text */
-  }
-  
-  /* Styling for the image */
-  .imgM {
-    width: 100px;
-    height: 100px;
-    object-fit: cover; /* Ensure the image covers the box */
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Styling for the text content */
-  .list-heading {
-    font-size: 20px;
-    margin: 0 0 5px 0;
-    font-weight: bold;
-  }
-  
-  .listI, .listA {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  
-  /* Ensure spacing between items */
-  .menu-list + .menu-list {
-    margin-top: 10px;
-  }
+/* Style the list */
+.contanier-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Style each list item */
+.menu-list {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+  margin-bottom: 10px; /* Reduced margin bottom */
+  background-color: #cea9a9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Image style */
+.imgM {
+  border-radius: 8px;
+  margin: 20px; /* Adjusted margin */
+  width: 100px;
+  height: 100px;
+}
+
+/* Style the heading */
+.list-heading {
+  font-size: 1.5rem;
+  margin: 30px;
+  color: #fff;
+  text-align:start;
+  flex: 1; /* Allows it to take up available space */
+}
+
+/* Style the ingredients and amount */
+.listI, .listA {
+  margin:30px; /* Adjusted margins */
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+}
+
+/* Flexbox container to center content */
+.menu-list-content {
+  flex: 1; /* Allows this container to take up remaining space */
+  text-align: center;
+}

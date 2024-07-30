@@ -1,0 +1,44 @@
+/* About.css */
+
+/* Styles for the container div */
+div {
+    font-family: Arial, sans-serif; /* Optional: Set a default font for the page */
+  }
+  
+  /* Navbar is assumed to be styled separately */
+  
+  /* Container for the photo and heading */
+  div > div {
+    position: relative; /* Allows positioning of the heading relative to this container */
+    text-align: center; /* Centers text within this container */
+  }
+  
+  /* Styling for the heading, positioned over the photo */
+  .heading-about {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Ensure text is visible on the photo */
+    font-size: 2.5em; /* Adjust as needed */
+    font-weight: bold; /* Optional: Make the font bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: Add shadow for better visibility */
+    margin: 0; /* Remove default margin */
+  }
+  
+  /* Styling for the photo */
+  div > div img {
+    width: 100%; /* Make the image responsive and fit the container */
+    height: 400px; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below the image */
+  }
+  
+  /* Styling for the paragraph content */
+  .about-context {
+    padding: 20px; /* Add padding around the text */
+    line-height: 1.6; /* Improve readability with line height */
+    font-size: 1.2em; /* Adjust font size as needed */
+    max-width: 800px; /* Optional: Limit the width for better readability */
+    margin: 20px auto; /* Center the paragraph and add vertical margin */
+  }
+  

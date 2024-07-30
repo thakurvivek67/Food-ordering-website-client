@@ -31,9 +31,9 @@ const Home = () => {
           </p>
         </div>
         <img
+        className="img-home"
           src="https://cdn.pixabay.com/photo/2015/11/19/10/38/food-1050813_1280.jpg"
-          width={300}
-          height={300}
+         
           alt="Food"
         />
       </div>

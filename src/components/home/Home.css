@@ -12,7 +12,7 @@
   /* Styling the welcome section */
   .welcome {
     display: flex;
-    align-items: flex-start; /* Align items at the start */
+    align-items: flex-start;
     padding: 20px;
     margin: 70px;
     justify-content: space-between;
@@ -34,8 +34,10 @@
     line-height: 1.5;
   }
   
-  .welcome img {
+  .img-home {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    width: 200px;
+    height: 200px;
   }
   
