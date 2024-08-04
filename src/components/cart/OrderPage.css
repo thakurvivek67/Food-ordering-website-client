@@ -1,0 +1,108 @@
+/* Container for the entire order page */
+.order-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Heading for the order summary */
+.order-page h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Style for the order summary list */
+.order-list {
+    list-style: none;
+    padding: 0;
+}
+
+.order-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.order-item h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.order-item p {
+    margin: 5px 0;
+}
+
+.order-item img {
+    display: block;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+/* Style for the total amount */
+.order-page h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Style for the order form */
+.order-form {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.order-form label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.order-form input,
+.order-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.order-form input[type="text"],
+.order-form input[type="email"],
+.order-form input[type="tel"] {
+    font-size: 1rem;
+}
+
+.order-form textarea {
+    font-size: 1rem;
+    height: 100px;
+    resize: vertical;
+}
+
+.order-form button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.order-form button:hover {
+    background-color: #218838;
+}
+
+.order-form button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}

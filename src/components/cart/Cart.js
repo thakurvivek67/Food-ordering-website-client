@@ -1,10 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cartActions } from '../store/CartSlice';
+import { useNavigate } from 'react-router-dom';
+
 import './Cart.css';
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
 
   const handleIncrease = (item) => {
@@ -20,6 +23,10 @@ const Cart = () => {
   };
 
   const totalAmount = cartItems.reduce((total, item) => total + item.amount * item.quantity, 0);
+
+  const handlePlaceOrder = () => {
+    navigate('/order'); 
+  };
 
   return (
     <div className='cart-content'>
@@ -43,7 +50,7 @@ const Cart = () => {
         <p>Your cart is empty</p>
       )}
       <h3>Total Amount: ${totalAmount.toFixed(2)}</h3>
-      <button>Place Order</button>
+      <button onClick={handlePlaceOrder}>Place Order</button>
     </div>
   );
 };

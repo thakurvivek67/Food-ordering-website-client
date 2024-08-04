@@ -7,6 +7,7 @@ import Menu from "./components/menu/Menu";
 import Gallary from "./components/home/Gallary";
 import About from "./components/home/About";
 import Contact from "./components/home/Contact";
+import OrderPage from "./components/cart/OrderPage";
 
 function App() {
   
@@ -22,6 +23,7 @@ function App() {
         <Route path="/gallery" element={<Gallary />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/order" element={<OrderPage/>} />
       </Routes>
     </div>
   );

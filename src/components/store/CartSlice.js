@@ -1,3 +1,4 @@
+// In CartSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
@@ -15,7 +16,7 @@ const cartSlice = createSlice({
       }
     },
     increaseQuantity: (state, action) => {
-      const item = state.items.find(item => item.id === action.payload.id);
+      const item = state.items.find(item => item.uniqueId === action.payload.uniqueId);
       if (item) {
         item.quantity += 1;
       }
@@ -32,6 +33,9 @@ const cartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       state.items = state.items.filter(item => item.uniqueId !== action.payload.uniqueId);
+    },
+    clearCart: (state) => {
+      state.items = [];
     },
   },
 });
