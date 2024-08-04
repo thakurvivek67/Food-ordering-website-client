@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import './Modal.css'; // Ensure this file has styles for Backdrop and ModalOverlay
+import './Modal.css'; 
 
 const Backdrop = () => {
   return <div className="backdrop"></div>;

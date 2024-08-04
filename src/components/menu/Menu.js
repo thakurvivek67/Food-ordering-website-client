@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../navbar/Navbar";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import "./Menu.css";
 import { menuActions } from "../store/MenuSlice";
+import { cartActions } from "../store/CartSlice";
 
 const Menu = () => {
   const dispatch = useDispatch();
+ // const cartItems = useSelector((state) => state.cart);
+
   const [menu, setMenu] = useState([]);
   const [filteredMenu, setFilteredMenu] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -15,40 +18,21 @@ const Menu = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Check localStorage for menu data
-        const storedMenu = localStorage.getItem('menu');
-        if (storedMenu) {
-          const menuArray = JSON.parse(storedMenu);
-          setMenu(menuArray);
-          setFilteredMenu(menuArray);
-          dispatch(menuActions.setMenu(menuArray));
-          dispatch(menuActions.setFilteredMenu(menuArray));
-        } else {
-          const response = await axios.get(
-            "https://restaurant-472a5-default-rtdb.firebaseio.com/menu.json"
-          );
-          const data = response.data;
-          const menuArray = Object.values(data);
-          setMenu(menuArray);
-          setFilteredMenu(menuArray);
-          dispatch(menuActions.setMenu(menuArray));
-          dispatch(menuActions.setFilteredMenu(menuArray));
-
-          // Store menu data in localStorage
-          localStorage.setItem('menu', JSON.stringify(menuArray));
-        }
+        const response = await axios.get(
+          "https://restaurant-472a5-default-rtdb.firebaseio.com/menu.json"
+        );
+        const data = response.data;
+        const menuArray = Object.values(data);
+        setMenu(menuArray);
+        setFilteredMenu(menuArray);
+        dispatch(menuActions.setMenu(menuArray));
+        dispatch(menuActions.setFilteredMenu(menuArray));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-
-    // Retrieve selected category from localStorage
-    const storedCategory = localStorage.getItem('selectedCategory');
-    if (storedCategory) {
-      setSelectedCategory(storedCategory);
-    }
   }, [dispatch]);
 
   // Filter menu based on selected category
@@ -64,17 +48,20 @@ const Menu = () => {
 
   // Handle category change
   const handleCategoryChange = (event) => {
-    const newCategory = event.target.value;
-    setSelectedCategory(newCategory);
+    setSelectedCategory(event.target.value);
+  };
 
-    // Store selected category in localStorage
-    localStorage.setItem('selectedCategory', newCategory);
+  // Handle add to cart
+  const handleAddToCart = (item) => {
+    return () => {
+      dispatch(cartActions.addToCart(item));
+    };
   };
 
   return (
     <div>
       <div className="contanierM">
-        <Navbar></Navbar>
+        <Navbar />
 
         <div className="photo-contanier">
           <h1 className="headingM">Our Menu</h1>
@@ -105,6 +92,7 @@ const Menu = () => {
           <ul className="contanier-list">
             {filteredMenu.map((item, index) => (
               <li key={index} className="menu-list">
+                <p className="listI">{item.id}</p>
                 <h2 className="list-heading">{item.name}</h2>
                 <p className="listI">Ingredients: {item.ingredients}</p>
                 <p className="listA">Amount: ${item.amount}</p>
@@ -114,7 +102,7 @@ const Menu = () => {
                   width="100"
                   className="imgM"
                 />
-                <button type="submit" className="btn-list">Add to Cart</button>
+                <button type="button" className="btn-list" onClick={handleAddToCart(item)}>Add to Cart</button>
               </li>
             ))}
           </ul>
@@ -127,3 +115,4 @@ const Menu = () => {
 };
 
 export default Menu;
+

@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './Navbar.css';
 import Modal from '../cart/Modal'; // Import Modal
 import Cart from '../cart/Cart'; // Import Cart component
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const cartItems = useSelector((state) => state.cart.items);
+  const numberOfItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const openModalHandler = () => {
     setIsModalOpen(true);
@@ -33,7 +36,7 @@ const Navbar = () => {
             Menu
           </NavLink>
           <NavLink
-            to="/gallary"
+            to="/gallery"
             className={({ isActive }) => (isActive ? 'active' : undefined)}
           >
             Gallery
@@ -50,7 +53,7 @@ const Navbar = () => {
           >
             Contact
           </NavLink>
-          <button onClick={openModalHandler}>Cart</button>
+          <button onClick={openModalHandler}>Cart ({numberOfItems})</button>
         </div>
       </nav>
       {isModalOpen && (
